@@ -1,0 +1,41 @@
+.form-horizontal{
+    background-color: rgb(245, 107, 107);
+    font-family: 'Arimo', sans-serif;
+    text-align: center;
+    padding: 50px 30px 50px;
+    
+}
+.form-horizontal .heading{
+    color: #555;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin: 0 0 50px 0;
+}
+.form-horizontal .form-group{
+    margin: 0 auto 30px;
+    position: relative;
+}
+
+.form-control::placeholder{
+    color: rgba(0,0,0,0.2);
+    font-size: 16px;
+}
+.form-group{
+    width: 300px;
+    position: relative;
+}
+.form-group .form-control{
+    padding-left: 30px;
+    height: 35px;
+}
+
+.form-group i{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    color: #555;
+}

@@ -1,0 +1,44 @@
+<nav class="uk-navbar uk-margin-left">
+  <!-- for hamburger-menu -->
+    <a
+    class="uk-navbar-toggle uk-hidden@s uk-padding-remove-left"
+    uk-navbar-toggle-icon
+    uk-toggle
+    href="#hamburger-menu"
+  ></a>
+  <!-- icon -->
+  <div class="uk-navbar-left uk-flex-nowrap">
+    <a href="#" class="uk-navbar-item uk-logo uk-padding-remove-left">
+      <img src="assets/logo.png" width="40" />
+    </a>
+  </div>
+  <!-- search box -->
+  <div class="uk-navbar-left uk-width-5-6@s uk-width-large@m">
+    <form class="uk-search uk-search-default uk-box-shadow-small uk-card-hover uk-width-5-6">
+      <span uk-search-icon></span>
+      <input class="uk-search-input" type="search" placeholder="Search" />
+    </form>
+  </div>
+  <div class="uk-navbar-right">
+    <ul class="uk-navbar-nav uk-margin-right uk-visible@m">
+      <!-- <li><a href="#">Become a host</a></li>
+      <li><a href="#">Help</a></li> -->
+      <li><a href="signup">Sign up</a></li>
+      <li *ngIf="!token.getToken()"><a routerLink="auth/login" routerLinkActive="router-link-active">Log in</a></li>
+      <li *ngIf="token.getToken()"><a (click)="logOut()">Log out</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- menu for mobile and tablets -->
+<div id="hamburger-menu" uk-offcanvas="overlay: true">
+  <div class="uk-offcanvas-bar">
+    <ul class="uk-nav uk-nav-default uk-light">
+      <li><a href="#">Become a host</a></li>
+      <li><a href="#">Help</a></li>
+      <li><a href="#">Sign up</a></li>
+      <li><a routerLink="auth/login" routerLinkActive="router-link-active">Log in</a></li>
+    </ul>
+    <button class="uk-offcanvas-close" type="button" uk-close></button>
+  </div>
+</div>
+<hr/>

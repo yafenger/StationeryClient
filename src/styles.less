@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/uikit/src/less/uikit.theme.less';
+
+// declare variables
+@color-default: #484848;
+@offcanvas-bar-background: #fff;
+@offcanvas-bar-color-mode: none;
+
+.hook-navbar-nav-item() {
+    text-transform: none;
+    color: @color-default;
+    font-weight: 500;
+  }
+  
+  .uk-search-input::placeholder {
+    font-weight: bold;
+  }
+  
+  .hook-search-input() {
+    font-weight: bold;
+  }
