@@ -21,8 +21,6 @@
   </div>
   <div class="uk-navbar-right">
     <ul class="uk-navbar-nav uk-margin-right uk-visible@m">
-      <!-- <li><a href="#">Become a host</a></li>
-      <li><a href="#">Help</a></li> -->
       <li><a href="signup">Sign up</a></li>
       <li *ngIf="!token.getToken()"><a routerLink="auth/login" routerLinkActive="router-link-active">Log in</a></li>
       <li *ngIf="token.getToken()"><a (click)="logOut()">Log out</a></li>
@@ -41,4 +39,4 @@
     <button class="uk-offcanvas-close" type="button" uk-close></button>
   </div>
 </div>
-<hr/>
+<hr class="uk-margin-small uk-margin-remove-bottom" />

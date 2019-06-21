@@ -16,14 +16,17 @@ export class AppComponent {
     if (this.tokenStorage.getToken()) {
       this.roles = this.tokenStorage.getAuthorities();
       this.roles.every(role => {
-        if (role === 'ROLE_ADMIN') {
-          this.authority = 'admin';
+        if (role === 'Shopowner') {
+          this.authority = 'Shopowner';
           return false;
-        } else if (role === 'ROLE_PM') {
-          this.authority = 'pm';
+        } else if (role === 'Manager') {
+          this.authority = 'Manager';
+          return false;
+        }else if (role === 'Admin') {
+          this.authority = 'Admin';
           return false;
         }
-        this.authority = 'user';
+        this.authority = 'Employee';
         return true;
       });
     }

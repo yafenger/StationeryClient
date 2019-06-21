@@ -9,12 +9,20 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { UserComponent } from './user/user.component';
-import { PmComponent } from './pm/pm.component';
 import { AdminComponent } from './admin/admin.component';
+import {EmployeeComponent} from './employee/employee.component';
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { HeaderComponent } from './shared/header/header.component';
+import { ShopownerComponent } from './shopowner/shopowner.component';
+import { ManagerComponent } from './manager/manager.component';
+
+//Material
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import {MatListModule} from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -23,10 +31,12 @@ import { HeaderComponent } from './shared/header/header.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    UserComponent,
-    PmComponent,
     AdminComponent,
-    HeaderComponent
+    HeaderComponent,
+    EmployeeComponent,
+    ShopownerComponent,
+    ManagerComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +44,11 @@ import { HeaderComponent } from './shared/header/header.component';
     FormsModule,
     HttpClientModule,
     Ng2CarouselamosModule,
+    //material
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
