@@ -1,18 +1,29 @@
-
 <mat-nav-list>
-  <h3 mat-subheader>Admin</h3>
-  <mat-list-item>
-    <h4 mat-line>edit</h4>
-  </mat-list-item>
-  <h3 mat-subheader>Manager</h3>
-  <h3 mat-subheader>Admin</h3>
-  <mat-list-item>
-    <h4 mat-line>edit</h4>
-  </mat-list-item>
-  <h3 mat-subheader>Manager</h3>
-  <h3 mat-subheader>Admin</h3>
-  <mat-list-item>
-    <h4 mat-line>edit</h4>
-  </mat-list-item>
-  
+  <div *ngIf="authService.hasLogin() && authService.hasRole('ROLE_ADMIN')">
+    <h4 mat-subheader>Admin</h4>
+    <mat-list-item>
+      <h4 mat-line>Employee Management</h4>
+    </mat-list-item>
+  </div>
+  <div *ngIf="authService.hasLogin() && authService.hasRole('ROLE_MANAGER')">
+    <h3 mat-subheader>Manager</h3>
+    <mat-list-item>
+      <h4 mat-line>Pending Orders</h4>
+    </mat-list-item>
+  </div>
+  <div *ngIf="authService.hasLogin() && authService.hasRole('ROLE_SHOPOWNER')">
+    <h3 mat-subheader>Shop Owner</h3>
+    <mat-list-item>
+      <h4 mat-line>Maintain Stationery</h4>
+    </mat-list-item>
+  </div>
+  <div *ngIf="authService.hasLogin() && authService.hasRole('ROLE_EMPLOYEE')">
+    <h3 mat-subheader>Employee</h3>
+    <mat-list-item>
+      <h4 mat-line>Place Orders</h4>
+    </mat-list-item>
+    <mat-list-item>
+      <h4 mat-line>Edit order</h4>
+    </mat-list-item>
+  </div>
 </mat-nav-list>

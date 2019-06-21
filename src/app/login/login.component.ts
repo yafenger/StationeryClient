@@ -40,22 +40,14 @@ export class LoginComponent implements OnInit {
  
     this.authService.signIn(this.loginInfo).subscribe(
       data => {
-        //save user's Token, username, authorities
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUsername(data.username);
-        this.tokenStorage.saveAuthorities(data.authorities);
- 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getAuthorities();
-
-        console.log("role",this.roles);
         //navigate according to different role
-        if(!(this.roles.indexOf("ROLE_ADMIN")<0)){
+        if(this.authService.hasRole('ROLE_ADMIN')){
           this.router.navigate(['./admin']);
-        }else if(!(this.roles.indexOf("ROLE_MANAGER")<0)){
+        }else if(this.authService.hasRole('ROLE_MANAGER')){
           this.router.navigate(['./manager']);
-        }else if(!(this.roles.indexOf("ROLE_SHOPOWNER")>0)){
+        }else if(this.authService.hasRole('ROLE_SHOPOWNER')){
           this.router.navigate(['./shopowner']);
         }else{
           this.router.navigate(['./employee']);
