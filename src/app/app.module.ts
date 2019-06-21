@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import {EmployeeComponent} from './employee/employee.component';
 
+
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { HeaderComponent } from './shared/header/header.component';
 import { ShopownerComponent } from './shopowner/shopowner.component';
@@ -23,6 +24,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import {MatListModule} from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { ConfirmEqualValidatorDirective } from './shared/directive/confirm-equal-validator.directive';
+
 
 
 @NgModule({
@@ -36,7 +39,8 @@ import { MatIconModule } from '@angular/material/icon';
     EmployeeComponent,
     ShopownerComponent,
     ManagerComponent,
-    SidebarComponent
+    SidebarComponent,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule,
