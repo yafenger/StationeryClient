@@ -25,10 +25,11 @@
         <div *ngIf="email.errors.email">Email must be a valid email address</div>
       </div>
     </div>
+    <div ngModelGroup="passwordGroup" >
     <div class="form-group">
         <i class="fas fa-key"></i>
         <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
-        required minlength="6" placeholder="Password" />
+        required minlength="6" placeholder="Password" (change)="passwordConfirm.control.updateValueAndValidity()" />
       <div *ngIf="password.touched && password.invalid">
         <div *ngIf="password.errors.required">Password is required</div>
         <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
@@ -44,7 +45,7 @@
         <div *ngIf="passwordConfirm.errors.notEqual">Passwords don't match</div>
       </div>
     </div>
-
+  </div>
     <div class="form-group">
       <button class="btn btn-outline-danger btn-lg">Register</button>
       <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
