@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
 
 import {CategoryService} from '../services/category.service';
 import {Category} from '../model/category';
@@ -15,10 +16,12 @@ import { ItemService } from '../services/item.service';
 export class HomeComponent implements OnInit {
 
   categories:Category[]=[];
-  //items:Item[]=[];
+  
 
-  displayedColumns:string[]=['name','stock','uom','price'];
-  itemsdataSource=new MatTableDataSource([]);
+  displayedColumns:string[]=['name','stock','uom','price','cart'];
+  itemsdataSource=new MatTableDataSource<Item>([]);
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
   constructor(private cateService: CategoryService,
               private itemService:ItemService) {
   }
@@ -26,6 +29,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(){
     this.getCategories();
     this.getItems();
+    this.itemsdataSource.paginator=this.paginator;
   }
 
   getCategories():void{
@@ -44,6 +48,10 @@ export class HomeComponent implements OnInit {
       },
       (err)=>console.log(err)  
     )
+  }
+
+  applyFilter(filterValue: string) {
+    this.itemsdataSource.filter = filterValue.trim().toLowerCase();
   }
 
   // getItemsByCatId(catId:number):void{
