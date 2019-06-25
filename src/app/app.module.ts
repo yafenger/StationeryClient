@@ -17,6 +17,7 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { HeaderComponent } from './shared/header/header.component';
 import { ShopownerComponent } from './shopowner/shopowner.component';
 import { ManagerComponent } from './manager/manager.component';
+import { ConfirmEqualValidatorDirective } from './shared/directive/confirm-equal-validator.directive';
 
 //Material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -24,8 +25,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import {MatListModule} from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { ConfirmEqualValidatorDirective } from './shared/directive/confirm-equal-validator.directive';
-
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -52,7 +52,8 @@ import { ConfirmEqualValidatorDirective } from './shared/directive/confirm-equal
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

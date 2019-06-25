@@ -6,3 +6,29 @@
     </div>
 </div>
 <hr class="uk-margin-small uk-margin-remove-bottom" />
+
+<table mat-table [dataSource]="itemsdataSource" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let item"> {{item.itemName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef> Stock </th>
+      <td mat-cell *matCellDef="let item"> {{item.stock}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="uom">
+      <th mat-header-cell *matHeaderCellDef> UOM </th>
+      <td mat-cell *matCellDef="let item"> {{item.unit}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td mat-cell *matCellDef="let item"> {{item.price}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
